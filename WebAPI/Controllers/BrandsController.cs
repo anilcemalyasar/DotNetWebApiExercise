@@ -33,6 +33,24 @@ namespace WebAPI.Controllers
             return Ok(_brandService.GetAll());
         }
 
+        [HttpGet]
+        [Route("{id:int}")]
+        public IActionResult GetById([FromRoute] int id)
+        {
+            return Ok(_brandService.GetById(id));
+        }
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            string res = _brandService.Delete(id);
+            if (res is null)
+            {
+                return NotFound($"There is no brand with given Id {id}");
+            }
+            return Ok(res);
+        }
         
     }
 }

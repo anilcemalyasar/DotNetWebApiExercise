@@ -13,6 +13,8 @@ namespace Business.Abstracts
     {
         CreatedBrandResponse Add(CreateBrandRequest createBrandRequest);
         List<GetAllBrandsResponse> GetAll();
+        GetBrandResponse GetById(int id);
+        string Delete(int id);
     }
 }
 

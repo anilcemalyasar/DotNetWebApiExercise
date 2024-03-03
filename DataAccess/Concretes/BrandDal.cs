@@ -25,9 +25,25 @@ namespace DataAccess.Concretes
             _brands.Add(brand);
         }
 
+        public string Delete(int id)
+        {
+            Brand brand = _brands.Where(b => b.Id == id).FirstOrDefault();
+            if (brand == null)
+            {
+                return null;
+            }
+            _brands.Remove(brand);
+            return $"Brand with ID:{id} was deleted";
+        }
+
         public List<Brand> GetAll()
         {
             return _brands;
+        }
+
+        public Brand GetById(int id)
+        {
+            return _brands.Where(b => b.Id == id).FirstOrDefault();
         }
     }
 }

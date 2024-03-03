@@ -11,6 +11,8 @@ namespace DataAccess.Abstracts
     {
         void Add(Brand brand);
         List<Brand> GetAll();
+        Brand GetById(int id);
+        string Delete(int id);
 
     }
 }

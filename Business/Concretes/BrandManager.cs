@@ -39,6 +39,16 @@ namespace Business.Concretes
             return createdBrandResponse;
         }
 
+        public string Delete(int id)
+        {
+            string res = _brandDal.Delete(id);
+            if (res is null)
+            {
+                return null;
+            }
+            return res;
+        }
+
         public List<GetAllBrandsResponse> GetAll()
         {
             // all these brands are database entities
@@ -59,5 +69,27 @@ namespace Business.Concretes
             // return Response DTO
             return getAllBrandsResponses;
         }
+
+        public GetBrandResponse GetById(int id)
+        {
+            // get database entity from data access layer
+            Brand brand = _brandDal.GetById(id);
+            if (brand is null)
+            {
+                return null;
+            }
+
+            // map db entity to response dto
+            GetBrandResponse getBrandResponse = new GetBrandResponse()
+            {
+                Id = brand.Id,
+                Name = brand.Name,
+                CreatedDate = brand.CreatedDate,
+            };
+
+            // return response dto with limited informations
+            return getBrandResponse;
+        }
+
     }
 }
