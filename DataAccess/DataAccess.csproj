@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstracts\IBrandDal.cs" />
+    <Compile Include="Abstracts\ICustomerDal.cs" />
     <Compile Include="Concretes\BrandDal.cs" />
+    <Compile Include="Concretes\CustomerDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

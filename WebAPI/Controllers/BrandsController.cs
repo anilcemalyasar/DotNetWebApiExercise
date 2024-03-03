@@ -32,5 +32,7 @@ namespace WebAPI.Controllers
         {
             return Ok(_brandService.GetAll());
         }
+
+        
     }
 }

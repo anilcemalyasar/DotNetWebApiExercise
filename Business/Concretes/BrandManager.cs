@@ -26,13 +26,14 @@ namespace Business.Concretes
             Brand brand = new Brand();
             brand.Name = createBrandRequest.Name;
             brand.CreatedDate = DateTime.Now;
+            brand.Id = 4;
             
             _brandDal.Add(brand);
 
             // mapping database entity to response dto
             CreatedBrandResponse createdBrandResponse = new CreatedBrandResponse();
             createdBrandResponse.Name = createBrandRequest.Name;
-            createdBrandResponse.Id = 4;
+            createdBrandResponse.Id = brand.Id;
             createdBrandResponse.CreatedDate = brand.CreatedDate;
 
             return createdBrandResponse;

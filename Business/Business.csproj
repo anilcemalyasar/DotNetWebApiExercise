@@ -42,10 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstracts\IBrandService.cs" />
+    <Compile Include="Abstracts\ICustomerService.cs" />
     <Compile Include="Concretes\BrandManager.cs" />
+    <Compile Include="Concretes\CustomerManager.cs" />
     <Compile Include="Dtos\Requests\CreateBrandRequest.cs" />
+    <Compile Include="Dtos\Requests\CreateCustomerRequest.cs" />
     <Compile Include="Dtos\Responses\CreatedBrandResponse.cs" />
+    <Compile Include="Dtos\Responses\CreatedCustomerResponse.cs" />
     <Compile Include="Dtos\Responses\GetAllBrandsResponse.cs" />
+    <Compile Include="Dtos\Responses\GetAllCustomerResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
