@@ -12,5 +12,7 @@ namespace Business.Abstracts
     {
         CreatedCustomerResponse Add(CreateCustomerRequest createCustomerRequest);
         List<GetAllCustomerResponse> GetAll();
+        GetCustomerResponse GetById(int id);
+        string Delete(int id);
     }
 }

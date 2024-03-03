@@ -29,5 +29,28 @@ namespace WebAPI.Controllers
             return Ok(_customerService.Add(createCustomerRequest));
         }
 
+        [HttpGet]
+        [Route("{id:int}")]
+        public IActionResult GetById([FromRoute] int id)
+        {
+            if (_customerService.GetById(id) == null)
+            {
+                return NotFound("There is no customer with given ID");
+            }
+            return Ok(_customerService.GetById(id));
+        }
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            string result = _customerService.Delete(id);
+            if (result == null)
+            {
+                return NotFound("There is no customer with given Id");
+            }
+            return Ok(result);
+        }
+
     }
 }

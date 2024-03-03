@@ -53,9 +53,26 @@ namespace DataAccess.Concretes
             _customers.Add(customer);
         }
 
+        public string Delete(int id)
+        {
+            Customer customer = _customers.Where(c => c.Id == id).FirstOrDefault();
+            if (customer == null)
+            {
+                return null;
+            }
+            _customers.Remove(customer);
+            return $"Customer with Id:{id} Successfully Deleted!";
+        }
+
         public List<Customer> GetAll()
         {
             return _customers;
+        }
+
+        public Customer GetById(int id)
+        {
+            // LINQ methods
+            return _customers.Where(c => c.Id  == id).FirstOrDefault();
         }
     }
 }

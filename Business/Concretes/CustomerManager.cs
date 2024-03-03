@@ -47,6 +47,16 @@ namespace Business.Concretes
 
         }
 
+        public string Delete(int id)
+        {
+            string result = _customerDal.Delete(id);
+            if (result == null)
+            {
+                return null;
+            }
+            return result;
+        }
+
         public List<GetAllCustomerResponse> GetAll()
         {
             // all these customers are database entities
@@ -69,6 +79,27 @@ namespace Business.Concretes
 
             // return from db entity mapped response dto
             return getAllCustomerResponses;
+        }
+
+        public GetCustomerResponse GetById(int id)
+        {
+            // get database entity from our data access layer
+            Customer customer = _customerDal.GetById(id);
+
+            if (customer == null)
+            {
+                return null;
+            }
+
+            // map database entity to response dto
+            return new GetCustomerResponse()
+            {
+                Id = customer.Id,
+                CreatedDate = customer.CreatedDate,
+                FirstName = customer.FirstName,
+                LastName = customer.LastName,
+                City = customer.City,
+            };
         }
     }
 }

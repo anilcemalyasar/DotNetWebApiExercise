@@ -11,5 +11,7 @@ namespace DataAccess.Abstracts
     {
         void Add(Customer customer);
         List<Customer> GetAll();
+        Customer GetById(int id);
+        string Delete(int id);
     }
 }
